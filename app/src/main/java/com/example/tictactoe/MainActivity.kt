@@ -185,11 +185,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun highlightWin(cells: List<Pair<Int, Int>>) {
-        val highlight = ContextCompat.getDrawable(this, R.drawable.win_highlight_background)?.mutate()
         val strokeColor = palette?.winStroke ?: ContextCompat.getColor(this, R.color.teal_200)
-        highlight?.let { DrawableCompat.setTint(it, strokeColor) }
         cells.forEach { (r, c) ->
-            buttons[r][c].background = highlight?.constantState?.newDrawable()?.mutate()
+            val drawable = ContextCompat.getDrawable(this, R.drawable.win_highlight_background)?.mutate()
+            drawable?.let { DrawableCompat.setTint(it, strokeColor) }
+            buttons[r][c].background = drawable
             buttons[r][c].animate().scaleX(1.08f).scaleY(1.08f).setDuration(180).start()
         }
     }
