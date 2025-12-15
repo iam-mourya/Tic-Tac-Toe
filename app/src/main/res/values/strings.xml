@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="theme_settings">Themes &amp; Settings</string>
+    <string name="reset_game">Reset Game</string>
+    <string name="play_again">Play Again</string>
+    <string name="close">Close</string>
+    <string name="settings_title">Game Settings</string>
+    <string name="sound_label">Sound</string>
+    <string name="vibration_label">Vibration</string>
+    <string name="theme_label">Theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_neon">Neon</string>
+    <string name="save_and_close">Save &amp; Close</string>
+</resources>
