@@ -120,6 +120,7 @@ class MainActivity : AppCompatActivity() {
             button.text = "O"
             boardState[row][col] = 2
         }
+        applyPlayerTint(button, activePlayer)
         fadeIn(button)
 
         val winCells = checkForWin()
@@ -263,7 +264,7 @@ class MainActivity : AppCompatActivity() {
     private fun applyTheme() {
         palette = ThemeManager.palette(this, prefs.getTheme())
         val p = palette ?: return
-        rootLayout.setBackgroundColor(p.background)
+        p.backgroundDrawableRes?.let { rootLayout.setBackgroundResource(it) } ?: rootLayout.setBackgroundColor(p.background)
         statusText.setTextColor(p.textPrimary)
         resultTitle.setTextColor(p.textPrimary)
         resultSubtitle.setTextColor(ColorUtils.setAlphaComponent(p.textPrimary, 210))
@@ -293,5 +294,12 @@ class MainActivity : AppCompatActivity() {
         ContextCompat.getDrawable(this, R.drawable.board_cell_background)?.mutate()?.also { drawable ->
             val tintColor = palette?.accent ?: ContextCompat.getColor(this, R.color.light_accent)
             DrawableCompat.setTint(drawable, tintColor)
+    }
+
+    private fun applyPlayerTint(button: Button, player: Int) {
+        val p = palette
+        if (p == null || prefs.getTheme() != ThemeOption.NEON) return
+        val color = if (player == 1) p.xColor else p.oColor
+        button.setTextColor(color)
     }
 }

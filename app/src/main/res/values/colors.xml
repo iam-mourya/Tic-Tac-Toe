@@ -14,4 +14,6 @@
     <color name="neon_bg">#05060A</color>
     <color name="neon_accent">#00F0FF</color>
     <color name="neon_text">#E6FBFF</color>
+    <color name="neon_x">#FBE94D</color>
+    <color name="neon_o">#FF4DF3</color>
 </resources>
